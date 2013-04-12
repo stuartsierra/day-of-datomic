@@ -39,6 +39,12 @@
   (->> (concat upvote-all-stories new-user)
        (d/transact conn)))
 
+(defpp actual-new-user-id
+  "The actual entity ID of the new user after the transaction."
+  (d/resolve-tempid (:db-after @upvote-tx-result)
+                    (:tempids @upvote-tx-result)
+                    new-user-id))
+
 (defpp change-user-name-result
   "Demonstrates upsert. Tempid will resolve to existing id to
    match specified :user/email."
