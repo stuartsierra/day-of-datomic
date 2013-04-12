@@ -36,6 +36,7 @@
           'clojure.repl
           'clojure.pprint)
      (require
+      'datomic.samples.pprint
       '[clojure.string :as str]
       '[clojure.java.io :as io]
       '[clojure.pprint :as pprint]
