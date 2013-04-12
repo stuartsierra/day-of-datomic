@@ -50,8 +50,8 @@
    match specified :user/email."
   (d/transact
    conn
-   [{:user/email "john@example.com" ;; this finds the existing entity
-     :db/id #db/id [:db.part/user]  ;; will be replaced by existing id
+   [{:user/email "john@example.com"  ; this finds the existing entity
+     :db/id (d/tempid :db.part/user)  ; will be replaced by existing id
      :user/firstName "Johnathan"}]))
 
 (doc qe)
