@@ -1,4 +1,4 @@
-;;; stories
+;;; Story attributes
 
 [{:db/id          #db/id[:db.part/db]
   :db/ident       :story/title
@@ -21,7 +21,7 @@
   :db/cardinality :db.cardinality/one
   :db.install/_attribute :db.part/db}]
 
-;;; comments
+;;; Comment attributes
 
 [{:db/id          #db/id[:db.part/db]
   :db/ident       :comments
@@ -42,7 +42,7 @@
   :db/cardinality :db.cardinality/one
   :db.install/_attribute :db.part/db}]
 
-;;; users
+;;; User attributes
 
 [{:db/id          #db/id[:db.part/db]
   :db/ident       :user/firstName
@@ -85,7 +85,7 @@
   :db/index       true
   :db.install/_attribute :db.part/db}]
 
-;;; stories
+;;; Story data
 
 [{:db/id       #db/id [:db.part/user]
   :story/title "Teach Yourself Programming in Ten Years"
@@ -99,7 +99,7 @@
   :story/title "Beating the Averages"
   :story/url   "http://www.paulgraham.com/avg.html"}]
 
-;;; users
+;;; User data
 
 [{:db/id          #db/id [:db.part/user]
   :user/firstName "Stu"
