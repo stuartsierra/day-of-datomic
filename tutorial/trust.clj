@@ -6,7 +6,7 @@
 (ensure-schemas conn :day-of-datomic/schema schema-map :day-of-datomic/provenance)
 
 ;; we are pretty confident about this data, so :source/confidence = 95
-@(d/transact
+(d/transact
   conn
   [{:db/id (d/tempid :db.part/user)
     :story/title "ElastiCache in 6 minutes"
@@ -15,7 +15,7 @@
     :source/confidence 95}])
 
 ;; we are less confident about this data, so :source/confidence = 40
-@(d/transact
+(d/transact
   conn
   [{:db/id (d/tempid :db.part/user)
     :story/title "Request for Urgnent Business Relationship"
