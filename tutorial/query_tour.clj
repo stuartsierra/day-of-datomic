@@ -30,13 +30,6 @@
      db
      "editor@example.com")
 
-(d/q '[:find (count ?comment)
-       :where
-       [?comment :comment/author]
-       [?commentable :comments ?comment]
-       [?commentable :user/email]]
-     db)
-
 
 (d/q '[:find ?attr-name
        :where
