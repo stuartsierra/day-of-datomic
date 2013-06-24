@@ -78,7 +78,7 @@
   (find-by (d/db conn) :user/email "john@example.com"))
 
 ;; should now be only two, since one was retracted
-(get john :user/upVotes)
+(count (get john :user/upVotes))
 
 (defpp data-that-retracts-johns-upvotes
   (vec (d/q '[:find ?op ?e ?a ?v
