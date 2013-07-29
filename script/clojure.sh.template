@@ -16,9 +16,9 @@ cd "$(dirname "$0")"
 
 # Cygwin uses the Windows Java executable
 if [[ "$OSTYPE" = "cygwin" ]]; then
-    PATH_SEPARATOR="REPLACE_WITH_WINDOWS_CLASSPATH"
+    CLASSPATH="src;test;resources;dev-resources;target/classes;REPLACE_WITH_WINDOWS_JARS"
 else
-    PATH_SEPARATOR="REPLACE_WITH_UNIX_CLASSPATH"
+    CLASSPATH="src:test:resources:dev-resources:target/classes:REPLACE_WITH_UNIX_JARS"
 fi
 
 exec java -cp "$CLASSPATH" jline.ConsoleRunner clojure.main "$@"
