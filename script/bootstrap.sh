@@ -19,4 +19,3 @@ sed -e "s|REPLACE_WITH_WINDOWS_JARS|$WINDOWS_JARS|" \
 
 chmod 0755 clojure.sh
 
-

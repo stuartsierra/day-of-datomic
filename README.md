@@ -8,8 +8,7 @@ for learning [Datomic](http://datomic.com) at a Clojure REPL.
 
 Start a REPL:
 
-If you have a network connection, you can use
-[Leiningen](http://leiningen.org) to launch a REPL.
+Use [Leiningen](http://leiningen.org) to launch a REPL.
 
 On Unix-like systems, including Mac OS X:
 
