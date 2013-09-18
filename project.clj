@@ -4,7 +4,7 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/tools.namespace "0.2.4"]
                  [org.clojure/test.generative "0.3.0"]
-                 [com.datomic/datomic-free "0.8.4138"]
+                 [com.datomic/datomic-free "0.8.4159"]
                  [incanter/incanter-charts "1.5.1"]
                  [incanter/incanter-pdf "1.5.1"]
                  [jline/jline "0.9.94"]]
