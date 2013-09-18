@@ -2,6 +2,9 @@
 
 # You can use this script to launch Clojure in any POSIX-compatible
 # environment with a Bash shell such as Linux, Mac OS X, or Cygwin.
+#
+# Use this script only if you cannot download and install Leiningen
+# from http://leiningen.org/
 
 set -e
 

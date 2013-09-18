@@ -6,30 +6,18 @@ for learning [Datomic](http://datomic.com) at a Clojure REPL.
 
 ## Getting Started
 
-Start a REPL:
+First, download and install [Leiningen](http://leiningen.org), the
+Clojure build tool.
 
-Use [Leiningen](http://leiningen.org) to launch a REPL.
+Then run a REPL:
 
 On Unix-like systems, including Mac OS X:
 
-    ./lein repl
+    lein repl
 
 On Windows:
 
     lein.bat repl
-
-
-Alternately, if you do not have a network connection, you should
-be able to launch a Clojure REPL by running one of the scripts
-provided in this directory:
-
-On Unix-like systems, including Mac OS X:
-
-    ./clojure.sh
-
-On Windows:
-
-    clojure.cmd    
 
 
 # Tutorials
@@ -61,8 +49,7 @@ the helper functions in src/datomic/samples.
 For specific feedback on the tutorials, please create an
 [issue](https://github.com/Datomic/day-of-datomic/issues).
 
-For questions about Datomic, try the [public mailing
-list](http://groups.google.com/group/datomic).
+For questions about Datomic, try the [public mailing list](http://groups.google.com/group/datomic).
 
 
 ## License
