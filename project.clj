@@ -8,5 +8,4 @@
                  [incanter/incanter-charts "1.5.1"]
                  [incanter/incanter-pdf "1.5.1"]
                  [jline/jline "0.9.94"]]
-  :local-repo "repository"
-  )
+  :local-repo "repository")
