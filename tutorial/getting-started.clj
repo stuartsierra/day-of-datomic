@@ -1,11 +1,11 @@
 ;; This file contains code examples for getting-started.html. They are
 ;; written in clojure, for use with Datomic's interactive repl. You can
 ;; start the repl by running 'bin/repl' from the datomic directory.
-;; Once the repl is running, you can copy code into it or, if invoke it
-;; directory from your editor, based on your configuration.
+;; Once the repl is running, you can copy code into it or invoke it
+;; directly from your editor, based on your configuration.
 
-(require '[datomic.api :as d])
-(use 'clojure.pprint)
+(require '[datomic.api :as d :refer (db q)])
+(require '[clojure.pprint :refer (pprint)])
 
 ;; store database uri
 (def uri "datomic:mem://seattle")
@@ -159,7 +159,7 @@
                   [[:community.type/email-list :community.orgtype/community]
                    [:community.type/website :community.orgtype/commercial]])))
 
-;; find all community names coming after "C" in alphabetical order
+;; find all community names coming before "C" in alphabetical order
 (pprint (seq (d/q '[:find ?n
                     :where
                     [?c :community/name ?n]
@@ -172,7 +172,6 @@
                   :where
                   [(fulltext $ :community/name "Wallingford") [[?e ?n]]]]
                 (d/db conn))))
-
 
 ;; find all communities that are websites and that are about
 ;; food, passing in type and search string as parameters
@@ -271,6 +270,10 @@
 (let [db-asof-data (-> conn d/db (d/as-of data-tx-date))]
   (println (count (seq (d/q communities-query db-asof-data)))))
 
+;; find all communities since schema transaction
+(let [db-since-data (-> conn d/db (d/since schema-tx-date))]
+  (println (count (seq (d/q communities-query db-since-data)))))
+
 ;; find all communities since seed data transaction
 (let [db-since-data (-> conn d/db (d/since data-tx-date))]
   (println (count (seq (d/q communities-query db-since-data)))))
@@ -299,11 +302,11 @@
 
 ;; make a new partition
 @(d/transact conn [{:db/id (d/tempid :db.part/db)
-                      :db/ident :events
+                      :db/ident :communities
                       :db.install/_partition :db.part/db}])
 
 ;; make a new community
-@(d/transact conn [{:db/id (d/tempid :db.part/user)
+@(d/transact conn [{:db/id (d/tempid :communities)
                       :community/name "Easton"}])
 
 ;; update data for a community
@@ -329,7 +332,7 @@
 ;; get transaction report queue, add new community again
 (def queue (d/tx-report-queue conn))
 
-@(d/transact conn [{:db/id (d/tempid :db.part/user)
+@(d/transact conn [{:db/id (d/tempid :communities)
                       :community/name "Easton"}])
 
 (when-let [report (.poll queue)]
